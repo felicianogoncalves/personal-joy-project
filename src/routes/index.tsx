@@ -57,6 +57,12 @@ const projects = [
 ];
 
 function Index() {
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      window.scrollTo({ top: 0, behavior: "auto" });
+    }
+  }, []);
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Nav />
@@ -81,12 +87,7 @@ function Nav() {
           <a href="#projects" className="hover:text-foreground transition">Projects</a>
           <a href="#contact" className="hover:text-foreground transition">Contact</a>
         </nav>
-        <a
-          href="#contact"
-          className="text-[10px] uppercase tracking-widest px-3 py-1.5 rounded-full bg-accent-violet/15 text-accent-violet border border-accent-violet/30 hover:bg-accent-violet/25 transition"
-        >
-          Hire me
-        </a>
+        <div className="w-0 md:w-auto" aria-hidden="true" />
       </div>
     </header>
   );
