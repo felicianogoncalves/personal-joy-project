@@ -1,5 +1,22 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Github, Linkedin, Twitter, Mail, ArrowUpRight, Container, Boxes, Layers, Atom, Cloud, Cog } from "lucide-react";
+import { useEffect } from "react";
+import {
+  Github,
+  Linkedin,
+  Twitter,
+  Mail,
+  ArrowUpRight,
+  Cloud,
+  Container,
+  Layers,
+  Monitor,
+  Workflow,
+  LayoutGrid,
+  Terminal,
+  Database,
+  ShieldCheck,
+  HardDrive,
+} from "lucide-react";
 import heroServers from "@/assets/hero-servers.jpg";
 import heroCode from "@/assets/hero-code.jpg";
 import projShopify from "@/assets/project-shopify.jpg";
@@ -7,7 +24,7 @@ import projAws from "@/assets/project-aws.jpg";
 import projDevops from "@/assets/project-devops.jpg";
 import projEcommerce from "@/assets/project-ecommerce.jpg";
 
-const NAME = "YOURNAME";
+const NAME = "FELICIANOJR";
 const TITLE = "E-COMMERCE & DEVOPS ENGINEER";
 const TAGLINE = "Architecting scalable solutions for global brands and high-growth platforms.";
 
@@ -24,12 +41,17 @@ export const Route = createFileRoute("/")({
 });
 
 const stack = [
-  { name: "Shopify", desc: "E-commerce Platform", Icon: Cog },
+  { name: "AWS", desc: "Cloud Infrastructure", Icon: Cloud },
+  { name: "Azure", desc: "Cloud Infrastructure", Icon: Cloud },
   { name: "Docker", desc: "Containerization", Icon: Container },
   { name: "Terraform", desc: "Infrastructure as Code", Icon: Layers },
-  { name: "Kubernetes", desc: "Container Orchestration", Icon: Boxes },
-  { name: "React", desc: "UI Library", Icon: Atom },
-  { name: "AWS", desc: "Cloud Infrastructure", Icon: Cloud },
+  { name: "VMware", desc: "Virtualization Platform", Icon: Monitor },
+  { name: "MuleSoft", desc: "Integration Platform", Icon: Workflow },
+  { name: "Microsoft 365", desc: "Productivity Suite", Icon: LayoutGrid },
+  { name: "Python", desc: "Programming Language", Icon: Terminal },
+  { name: "MySQL", desc: "Relational Database", Icon: Database },
+  { name: "Veeam", desc: "Backup & Replication", Icon: ShieldCheck },
+  { name: "NAS", desc: "Network Attached Storage", Icon: HardDrive },
 ];
 
 const projects = [
@@ -56,6 +78,12 @@ const projects = [
 ];
 
 function Index() {
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      window.scrollTo({ top: 0, behavior: "auto" });
+    }
+  }, []);
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Nav />
@@ -73,19 +101,24 @@ function Nav() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-background/70 border-b border-border">
       <div className="max-w-7xl mx-auto px-6 h-14 flex items-center justify-between">
-        <a href="#top" className="font-display text-lg tracking-wider">{NAME}</a>
-        <nav className="hidden md:flex items-center gap-8 text-xs uppercase tracking-widest text-muted-foreground">
-          <a href="#about" className="hover:text-foreground transition">About</a>
-          <a href="#stack" className="hover:text-foreground transition">Services</a>
-          <a href="#projects" className="hover:text-foreground transition">Projects</a>
-          <a href="#contact" className="hover:text-foreground transition">Contact</a>
-        </nav>
-        <a
-          href="#contact"
-          className="text-[10px] uppercase tracking-widest px-3 py-1.5 rounded-full bg-accent-violet/15 text-accent-violet border border-accent-violet/30 hover:bg-accent-violet/25 transition"
-        >
-          Hire me
+        <a href="#top" className="font-display text-lg tracking-wider">
+          {NAME}
         </a>
+        <nav className="hidden md:flex items-center gap-8 text-xs uppercase tracking-widest text-muted-foreground">
+          <a href="#about" className="hover:text-foreground transition">
+            About
+          </a>
+          <a href="#stack" className="hover:text-foreground transition">
+            Services
+          </a>
+          <a href="#projects" className="hover:text-foreground transition">
+            Projects
+          </a>
+          <a href="#contact" className="hover:text-foreground transition">
+            Contact
+          </a>
+        </nav>
+        <div className="w-0 md:w-auto" aria-hidden="true" />
       </div>
     </header>
   );
@@ -234,12 +267,8 @@ function Contact() {
   return (
     <section id="contact" className="border-t border-border">
       <div className="max-w-4xl mx-auto px-6 py-24 text-center">
-        <p className="text-[10px] uppercase tracking-[0.3em] text-accent-violet font-semibold">
-          Contact
-        </p>
-        <h3 className="font-display mt-4 text-4xl md:text-6xl uppercase">
-          Let's build something
-        </h3>
+        <p className="text-[10px] uppercase tracking-[0.3em] text-accent-violet font-semibold">Contact</p>
+        <h3 className="font-display mt-4 text-4xl md:text-6xl uppercase">Let's build something</h3>
         <a
           href="mailto:hello@example.com"
           className="inline-flex items-center gap-2 mt-8 px-6 py-3 rounded-full bg-accent-violet text-white text-sm font-medium hover:opacity-90 transition"
@@ -248,9 +277,15 @@ function Contact() {
           hello@example.com
         </a>
         <div className="flex items-center justify-center gap-5 mt-10 text-muted-foreground">
-          <a href="#" aria-label="LinkedIn" className="hover:text-accent-violet transition"><Linkedin className="h-5 w-5" /></a>
-          <a href="#" aria-label="GitHub" className="hover:text-accent-violet transition"><Github className="h-5 w-5" /></a>
-          <a href="#" aria-label="Twitter" className="hover:text-accent-violet transition"><Twitter className="h-5 w-5" /></a>
+          <a href="#" aria-label="LinkedIn" className="hover:text-accent-violet transition">
+            <Linkedin className="h-5 w-5" />
+          </a>
+          <a href="#" aria-label="GitHub" className="hover:text-accent-violet transition">
+            <Github className="h-5 w-5" />
+          </a>
+          <a href="#" aria-label="Twitter" className="hover:text-accent-violet transition">
+            <Twitter className="h-5 w-5" />
+          </a>
         </div>
       </div>
     </section>
@@ -262,12 +297,22 @@ function Footer() {
     <footer className="border-t border-border">
       <div className="max-w-7xl mx-auto px-6 py-6 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-muted-foreground">
         <div className="flex items-center gap-6">
-          <a href="#about" className="hover:text-foreground transition">About</a>
-          <a href="#stack" className="hover:text-foreground transition">Services</a>
-          <a href="#projects" className="hover:text-foreground transition">Projects</a>
-          <a href="#contact" className="hover:text-foreground transition">Contact</a>
+          <a href="#about" className="hover:text-foreground transition">
+            About
+          </a>
+          <a href="#stack" className="hover:text-foreground transition">
+            Services
+          </a>
+          <a href="#projects" className="hover:text-foreground transition">
+            Projects
+          </a>
+          <a href="#contact" className="hover:text-foreground transition">
+            Contact
+          </a>
         </div>
-        <p>© {new Date().getFullYear()} {NAME}. All rights reserved.</p>
+        <p>
+          © {new Date().getFullYear()} {NAME}. All rights reserved.
+        </p>
       </div>
     </footer>
   );
