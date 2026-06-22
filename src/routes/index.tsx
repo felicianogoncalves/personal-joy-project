@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Github, Linkedin, Twitter, Mail, ArrowUpRight, Container, Boxes, Layers, Atom, Cloud, Cog } from "lucide-react";
+import { useEffect } from "react";
+import { Github, Linkedin, Twitter, Mail, ArrowUpRight, Cloud, Container, Layers, Monitor, Workflow, LayoutGrid, Terminal, Database, ShieldCheck, HardDrive } from "lucide-react";
 import heroServers from "@/assets/hero-servers.jpg";
 import heroCode from "@/assets/hero-code.jpg";
 import projShopify from "@/assets/project-shopify.jpg";
