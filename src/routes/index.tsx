@@ -22,8 +22,8 @@ import {
 } from "lucide-react";
 import heroServers from "@/assets/hero-servers.jpg";
 import heroCode from "@/assets/hero-code.jpg";
-import projMariana from "@/assets/project-mariana.jpg";
-import projAnita from "@/assets/project-anita.jpg";
+import projMariana from "@/assets/project-mariana.png";
+import projAnita from "@/assets/project-anita.png";
 
 const NAME = "FELICIANOJR";
 const TITLE = "E-COMMERCE & DEVOPS ENGINEER";
