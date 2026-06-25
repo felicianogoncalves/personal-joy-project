@@ -10,19 +10,20 @@ import {
   Container,
   Layers,
   Monitor,
-  Workflow,
+  ShoppingBag,
   LayoutGrid,
   Terminal,
   Database,
   ShieldCheck,
   HardDrive,
+  Triangle,
+  Train,
+  Code2,
 } from "lucide-react";
 import heroServers from "@/assets/hero-servers.jpg";
 import heroCode from "@/assets/hero-code.jpg";
-import projShopify from "@/assets/project-shopify.jpg";
-import projAws from "@/assets/project-aws.jpg";
-import projDevops from "@/assets/project-devops.jpg";
-import projEcommerce from "@/assets/project-ecommerce.jpg";
+import projMariana from "@/assets/project-mariana.jpg";
+import projAnita from "@/assets/project-anita.jpg";
 
 const NAME = "FELICIANOJR";
 const TITLE = "E-COMMERCE & DEVOPS ENGINEER";
@@ -46,34 +47,29 @@ const stack = [
   { name: "Docker", desc: "Containerization", Icon: Container },
   { name: "Terraform", desc: "Infrastructure as Code", Icon: Layers },
   { name: "VMware", desc: "Virtualization Platform", Icon: Monitor },
-  { name: "MuleSoft", desc: "Integration Platform", Icon: Workflow },
+  { name: "Medusa.js", desc: "Headless E-commerce", Icon: ShoppingBag },
   { name: "Microsoft 365", desc: "Productivity Suite", Icon: LayoutGrid },
   { name: "Python", desc: "Programming Language", Icon: Terminal },
   { name: "MySQL", desc: "Relational Database", Icon: Database },
-  { name: "Veeam", desc: "Backup & Replication", Icon: ShieldCheck },
+  { name: "Veeam / StorageCraft", desc: "Backup & Replication", Icon: ShieldCheck },
   { name: "NAS", desc: "Network Attached Storage", Icon: HardDrive },
+  { name: "Vercel", desc: "Frontend Deployment", Icon: Triangle },
+  { name: "Railway", desc: "App Hosting Platform", Icon: Train },
+  { name: "React / TypeScript", desc: "Frontend Stack", Icon: Code2 },
 ];
 
 const projects = [
   {
-    title: "Global Shopify Migration",
-    desc: "Migrated a multinational brand to Shopify Plus, increasing conversion by 45%.",
-    img: projShopify,
+    title: "Mariana Cabeleireiros",
+    desc: "Website institucional para salão de cabeleireiro — design, desenvolvimento e deployment.",
+    img: projMariana,
+    href: "https://marianacabeleireiros.pt",
   },
   {
-    title: "AWS Serverless Architecture",
-    desc: "Implemented a scalable serverless backend on AWS, reducing operational costs.",
-    img: projAws,
-  },
-  {
-    title: "DevOps Pipeline Optimization",
-    desc: "Automated CI/CD pipelines for rapid deployment, improving team efficiency.",
-    img: projDevops,
-  },
-  {
-    title: "Custom E-commerce Platform",
-    desc: "Developed a headless commerce solution for a luxury fashion retailer.",
-    img: projEcommerce,
+    title: "Salão Anita",
+    desc: "Presença online para o Salão Anita — site moderno, responsivo e otimizado.",
+    img: projAnita,
+    href: "https://salaoanita.pt",
   },
 ];
 
@@ -207,28 +203,32 @@ function Projects() {
     <section id="projects" className="border-t border-border">
       <div className="max-w-6xl mx-auto px-6 py-24">
         <SectionHeader kicker="Selected Projects" title="Recent work" />
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
           {projects.map((p) => (
-            <article
+            <a
               key={p.title}
-              className="group relative overflow-hidden rounded-lg bg-surface border border-border hover:border-accent-violet/50 transition"
+              href={p.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative overflow-hidden rounded-lg bg-surface border border-border hover:border-accent-violet/50 transition block"
             >
-              <div className="aspect-[4/3] overflow-hidden">
+              <div className="aspect-[16/10] overflow-hidden">
                 <img
                   src={p.img}
                   alt={p.title}
                   loading="lazy"
-                  width={800}
-                  height={600}
+                  width={1200}
+                  height={750}
                   className="h-full w-full object-cover group-hover:scale-105 transition duration-700"
                 />
               </div>
               <div className="p-5">
                 <h4 className="font-semibold text-sm leading-snug">{p.title}</h4>
                 <p className="mt-2 text-xs text-muted-foreground leading-relaxed">{p.desc}</p>
+                <p className="mt-2 text-xs text-accent-violet">{p.href.replace("https://", "")}</p>
               </div>
-              <ArrowUpRight className="absolute top-3 right-3 h-4 w-4 text-foreground/0 group-hover:text-accent-violet transition" />
-            </article>
+              <ArrowUpRight className="absolute top-3 right-3 h-4 w-4 text-foreground/40 group-hover:text-accent-violet transition" />
+            </a>
           ))}
         </div>
       </div>
