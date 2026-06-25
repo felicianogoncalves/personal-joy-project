@@ -41,21 +41,31 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const stack = [
-  { name: "AWS", desc: "Cloud Infrastructure", Icon: Cloud },
-  { name: "Azure", desc: "Cloud Infrastructure", Icon: Cloud },
-  { name: "Docker", desc: "Containerization", Icon: Container },
-  { name: "Terraform", desc: "Infrastructure as Code", Icon: Layers },
-  { name: "VMware", desc: "Virtualization Platform", Icon: Monitor },
-  { name: "Medusa.js", desc: "Headless E-commerce", Icon: ShoppingBag },
-  { name: "Microsoft 365", desc: "Productivity Suite", Icon: LayoutGrid },
-  { name: "Python", desc: "Programming Language", Icon: Terminal },
-  { name: "MySQL", desc: "Relational Database", Icon: Database },
-  { name: "Veeam / StorageCraft", desc: "Backup & Replication", Icon: ShieldCheck },
-  { name: "NAS", desc: "Network Attached Storage", Icon: HardDrive },
-  { name: "Vercel", desc: "Frontend Deployment", Icon: Triangle },
-  { name: "Railway", desc: "App Hosting Platform", Icon: Train },
-  { name: "React / TypeScript", desc: "Frontend Stack", Icon: Code2 },
+const stackCategories = [
+  {
+    title: "INFRA",
+    items: [
+      { name: "AWS", desc: "Cloud Infrastructure", Icon: Cloud },
+      { name: "Azure", desc: "Cloud Infrastructure", Icon: Cloud },
+      { name: "Docker", desc: "Containerization", Icon: Container },
+      { name: "Terraform", desc: "Infrastructure as Code", Icon: Layers },
+      { name: "VMware", desc: "Virtualization Platform", Icon: Monitor },
+      { name: "Veeam / StorageCraft", desc: "Backup & Replication", Icon: ShieldCheck },
+      { name: "NAS", desc: "Network Attached Storage", Icon: HardDrive },
+      { name: "Vercel", desc: "Frontend Deployment", Icon: Triangle },
+      { name: "Railway", desc: "App Hosting Platform", Icon: Train },
+    ],
+  },
+  {
+    title: "CODE",
+    items: [
+      { name: "Python", desc: "Programming Language", Icon: Terminal },
+      { name: "React / TypeScript", desc: "Frontend Stack", Icon: Code2 },
+      { name: "Medusa.js", desc: "Headless E-commerce", Icon: ShoppingBag },
+      { name: "MySQL / Supabase", desc: "Relational Database & Backend", Icon: Database },
+      { name: "Microsoft 365", desc: "Productivity Suite", Icon: LayoutGrid },
+    ],
+  },
 ];
 
 const projects = [
@@ -180,15 +190,22 @@ function CoreStack() {
     <section id="stack" className="border-t border-border">
       <div className="max-w-6xl mx-auto px-6 py-24">
         <SectionHeader kicker="The Core Stack" title="Technologies driving innovation" />
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-8">
-          {stack.map(({ name, desc, Icon }) => (
-            <div key={name} className="flex items-center gap-4 py-3 border-b border-border/60">
-              <div className="flex h-11 w-11 items-center justify-center rounded-md bg-surface-2 border border-border">
-                <Icon className="h-5 w-5 text-accent-violet" strokeWidth={1.5} />
-              </div>
-              <div>
-                <p className="font-semibold text-base">{name}</p>
-                <p className="text-xs text-muted-foreground">{desc}</p>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+          {stackCategories.map(({ title, items }) => (
+            <div key={title}>
+              <h4 className="font-display text-xl uppercase tracking-wider mb-6 text-accent-violet">{title}</h4>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4">
+                {items.map(({ name, desc, Icon }) => (
+                  <div key={name} className="flex items-center gap-4 py-3 border-b border-border/60">
+                    <div className="flex h-11 w-11 items-center justify-center rounded-md bg-surface-2 border border-border">
+                      <Icon className="h-5 w-5 text-accent-violet" strokeWidth={1.5} />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-base">{name}</p>
+                      <p className="text-xs text-muted-foreground">{desc}</p>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           ))}
