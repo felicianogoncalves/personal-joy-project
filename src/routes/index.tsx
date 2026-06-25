@@ -41,21 +41,31 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const stack = [
-  { name: "AWS", desc: "Cloud Infrastructure", Icon: Cloud },
-  { name: "Azure", desc: "Cloud Infrastructure", Icon: Cloud },
-  { name: "Docker", desc: "Containerization", Icon: Container },
-  { name: "Terraform", desc: "Infrastructure as Code", Icon: Layers },
-  { name: "VMware", desc: "Virtualization Platform", Icon: Monitor },
-  { name: "Medusa.js", desc: "Headless E-commerce", Icon: ShoppingBag },
-  { name: "Microsoft 365", desc: "Productivity Suite", Icon: LayoutGrid },
-  { name: "Python", desc: "Programming Language", Icon: Terminal },
-  { name: "MySQL", desc: "Relational Database", Icon: Database },
-  { name: "Veeam / StorageCraft", desc: "Backup & Replication", Icon: ShieldCheck },
-  { name: "NAS", desc: "Network Attached Storage", Icon: HardDrive },
-  { name: "Vercel", desc: "Frontend Deployment", Icon: Triangle },
-  { name: "Railway", desc: "App Hosting Platform", Icon: Train },
-  { name: "React / TypeScript", desc: "Frontend Stack", Icon: Code2 },
+const stackCategories = [
+  {
+    title: "INFRA",
+    items: [
+      { name: "AWS", desc: "Cloud Infrastructure", Icon: Cloud },
+      { name: "Azure", desc: "Cloud Infrastructure", Icon: Cloud },
+      { name: "Docker", desc: "Containerization", Icon: Container },
+      { name: "Terraform", desc: "Infrastructure as Code", Icon: Layers },
+      { name: "VMware", desc: "Virtualization Platform", Icon: Monitor },
+      { name: "Veeam / StorageCraft", desc: "Backup & Replication", Icon: ShieldCheck },
+      { name: "NAS", desc: "Network Attached Storage", Icon: HardDrive },
+      { name: "Vercel", desc: "Frontend Deployment", Icon: Triangle },
+      { name: "Railway", desc: "App Hosting Platform", Icon: Train },
+    ],
+  },
+  {
+    title: "CODE",
+    items: [
+      { name: "Python", desc: "Programming Language", Icon: Terminal },
+      { name: "React / TypeScript", desc: "Frontend Stack", Icon: Code2 },
+      { name: "Medusa.js", desc: "Headless E-commerce", Icon: ShoppingBag },
+      { name: "MySQL / Supabase", desc: "Relational Database & Backend", Icon: Database },
+      { name: "Microsoft 365", desc: "Productivity Suite", Icon: LayoutGrid },
+    ],
+  },
 ];
 
 const projects = [
