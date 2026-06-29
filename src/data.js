@@ -72,4 +72,32 @@ export const PROJECTS = [
     desc: 'Loja online de moda — e-commerce headless, design minimal e checkout.',
     img: projOrnatto,
   },
+  {
+    title: 'AWS Flask App',
+    desc: 'Pipeline CI/CD efémero: imagem Docker versionada por commit, deploy em EC2, simulação de downtime e rollback. Zero custo residual.',
+    kind: 'devops',
+    tags: ['AWS EC2', 'Docker', 'GitHub Actions', 'IAM'],
+    terminal: [
+      '$ git push origin main',
+      '▸ docker build :commit-sha',
+      '▸ deploy → ec2 provision',
+      '● GET /version → v1.2 OK',
+      '✗ fail → rollback ✓',
+    ],
+    href: 'https://github.com/felicianogoncalves/aws-flask-app',
+  },
+  {
+    title: 'Terraform S3 Site',
+    desc: 'Infraestrutura como código: bucket S3 com static hosting provisionado por Terraform e publicado automaticamente via GitHub Actions.',
+    kind: 'devops',
+    tags: ['Terraform', 'AWS S3', 'GitHub Actions', 'IaC'],
+    terminal: [
+      '$ terraform apply',
+      '▸ aws_s3_bucket.site',
+      '▸ website_configuration ✓',
+      '● aws s3 sync ./dist',
+      '→ endpoint live',
+    ],
+    href: 'https://github.com/felicianogoncalves/infra_terraform',
+  },
 ]

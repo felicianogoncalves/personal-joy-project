@@ -22,11 +22,27 @@ export default function Projects() {
                 target={external ? '_blank' : undefined}
                 rel={external ? 'noopener noreferrer' : undefined}
               >
-                <img className="proj-img" src={p.img} alt={p.title} loading="lazy" />
+                {p.kind === 'devops' ? (
+                  <div className="proj-term">
+                    <div className="proj-term-head"><span /><span /><span /></div>
+                    <div className="proj-term-body">
+                      {p.terminal.map((line, j) => (
+                        <span key={j} className="proj-term-line">{line}</span>
+                      ))}
+                    </div>
+                  </div>
+                ) : (
+                  <img className="proj-img" src={p.img} alt={p.title} loading="lazy" />
+                )}
                 <span className="proj-index">{String(i + 1).padStart(2, '0')}</span>
                 <div className="proj-info">
                   <h3>{p.title}</h3>
                   <p>{p.desc}</p>
+                  {p.tags && (
+                    <div className="proj-tags">
+                      {p.tags.map((t) => <span key={t} className="proj-tag">{t}</span>)}
+                    </div>
+                  )}
                   {p.href && <span className="proj-url">{p.href.replace('https://', '')}</span>}
                 </div>
               </Tag>
