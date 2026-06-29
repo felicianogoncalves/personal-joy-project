@@ -17,7 +17,7 @@ export default function Projects() {
             return (
               <Tag
                 key={p.title}
-                className={`proj-card reveal${i === 0 ? ' proj-card--featured' : ''}`}
+                className={`proj-card reveal${i === 0 ? ' proj-card--featured' : ''}${p.kind === 'devops' ? ' proj-card--devops' : ''}`}
                 href={p.href || undefined}
                 target={external ? '_blank' : undefined}
                 rel={external ? 'noopener noreferrer' : undefined}

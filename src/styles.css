@@ -318,10 +318,24 @@ header.scrolled {
   color: color-mix(in srgb, var(--green) 70%, #fff);
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 }
+/* devops card: solid info bar so it never collides with terminal text behind it */
+.proj-card--devops .proj-info {
+  background: linear-gradient(to top, #06080a 62%, transparent);
+  padding-top: 2.4rem;
+}
+.proj-card--devops .proj-info h3 { font-size: clamp(1.25rem, 3vw, 2rem); }
+.proj-card--devops .proj-info p { display: none; }
+
 .proj-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.8rem; }
 .proj-tag {
   font-family: var(--mono); font-size: 0.68rem; color: rgba(255,255,255,0.7);
   padding: 0.2rem 0.55rem; border: 1px solid var(--line); border-radius: 999px;
+}
+
+/* touch devices (no hover): reveal details by default, otherwise they stay hidden */
+@media (hover: none) {
+  .proj-img { filter: grayscale(0) brightness(0.92) contrast(1.02); }
+  .proj-info p { opacity: 1; max-height: 8em; margin-top: 0.7rem; }
 }
 
 /* ============ FOOTER ============ */
@@ -329,10 +343,11 @@ header.scrolled {
 .footer-cta { margin-bottom: clamp(2.5rem, 6vh, 4rem); }
 .footer-cta-eyebrow { font-family: var(--mono); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 0.6rem; }
 .footer-cta-link {
-  display: inline-flex; align-items: center; gap: 0.4em;
+  display: inline-flex; align-items: center; flex-wrap: wrap; gap: 0.4em;
   font-family: var(--display); font-weight: 400; text-transform: uppercase;
-  font-size: clamp(2.2rem, 7vw, 5.5rem); line-height: 0.9; letter-spacing: -0.02em; color: var(--fg);
+  font-size: clamp(2rem, 7vw, 5.5rem); line-height: 0.9; letter-spacing: -0.02em; color: var(--fg);
   transition: color var(--t-fast) var(--ease);
+  overflow-wrap: anywhere;
 }
 .footer-cta-link:hover { color: var(--accent); }
 .footer-cta-arrow { display: inline-block; transition: transform var(--t) var(--ease); }
